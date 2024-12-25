@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+ name: jenkins-rc
+ labels:
+  type: ci-cdRC
+  author: ABC
+spec:
+ replicas: 2
+ template:
+  metadata:
+   name: cicd-pod
+   labels:
+    type: cicd-pod
+    author: ABC
+  spec:
+   containers:
+    - name: jenkins
+      image: jenkins/jenkins
+      ports:
+       - containerPort: 8080
+         hostPort: 9090
+...
