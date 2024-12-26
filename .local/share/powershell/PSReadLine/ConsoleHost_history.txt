@@ -1,7 +1,0 @@
-kubectl get pods
-az account set --subscription 39796c33-e4d1-4ec9-9886-4b84c681e937
-az aks get-credentials --resource-group kubernates --name Cluster --overwrite-existing
-kubectl get pods
-kubectl get nodes
-az account set --subscription 39796c33-e4d1-4ec9-9886-4b84c681e937
-az aks get-credentials --resource-group kubernates --name Cluster --overwrite-existing
