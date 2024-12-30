@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+ name: mynginx-pv
+ labels:
+  type: ABC
+spec:
+ storageClassName: manual
+ capacity:
+  storage: 10Gi
+ accessModes:
+  - ReadWriteOnce
+ hostPath:
+  path: /mnt/data
+...

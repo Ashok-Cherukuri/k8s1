@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+ name: mysql-pod
+ labels:
+  author: ABC
+spec:
+ containers:
+  - name: mysql
+    image: mysql
+    env:
+     - name: MYSQL_ROOT_PASSWORD
+       value: abc
+    volumeMounts:
+     - name: mysql-volume
+       mountPath: /var/lib/mysql
+ volumes:
+  - name: mysql-volume
+    persistentVolumeClaim:
+      claimName: mysql-pvc
+...
