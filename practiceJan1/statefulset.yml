@@ -1,0 +1,39 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: my-service
+ labels:
+  app: nginx-headles
+spec:
+ clusterIP: None
+ ports:
+  - targetPort: 80
+    port: 80
+    name: tcp
+    protocol: TCP
+ selector:
+  app: nginx-heaadles
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+ name: nginx-statefulset
+ labels:
+  app: nginx-headles
+spec:
+ replicas: 3
+ selector:
+  matchLabels:
+   app: nginx-headles
+ template:
+  metadata:
+     name: nginx-pod
+     labels:
+      app: nginx-headles
+  spec:
+   containers:
+    - name: nginx
+      image: nginx
+...
+ 
