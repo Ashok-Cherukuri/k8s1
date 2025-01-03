@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: wildfly-depl
+ labels:
+  app: wildfly
+spec:
+ replicas: 2
+ selector:
+  matchLabels:
+   app: wildfly
+ template:
+  metadata:
+   name: wildfly-pod
+   labels:
+    app: wildfly
+  spec:
+   containers:
+    - name: widlfly
+      image: khipu/wildfly:latest
